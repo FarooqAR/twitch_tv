@@ -67,7 +67,7 @@ $(document).ready(function() {
     }
     function showOnline() {
         showStreamers(streamersObjArray.filter(function(streamer) {
-            return (streamer.status !== 'offline' && streamer.status !== 'closed')
+            return (streamer.status!=='does_not_exist' && streamer.status !== 'offline' && streamer.status !== 'closed')
         }));
     }
 
