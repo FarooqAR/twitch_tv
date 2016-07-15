@@ -1,0 +1,195 @@
+body {
+    font-family: 'Titillium Web', Arial, Helvetica, sans-serif;
+    color: #fff;
+    background: #136a8a;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #136a8a, #267871);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #136a8a, #267871);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+a:link,
+a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1,
+.controls {
+    text-align: center;
+}
+
+.controls {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.search-input-container {
+    position: relative;
+}
+
+input#search,
+button[type='submit'] {
+    font-size: 1em;
+    padding: 0.7em;
+    outline: none;
+    color: inherit;
+    background-color: transparent;
+}
+
+input#search {
+    border-radius: 3em;
+    width: 100%;
+    border: 2px solid #fff;
+    box-sizing: border-box;
+}
+
+button[type='submit'] {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 2px solid transparent;
+}
+
+.filters {
+    margin: 1em 0;
+    display: inline-block;
+}
+
+.filters a {
+    margin: 0;
+    display: inline-block;
+    background-color: #fff;
+    padding: 0.7em 1em;
+    color: #000;
+}
+
+.filters a:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.filters a:active,
+.filters a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.loading {
+    display: inline-block;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    border: 0.25rem solid rgba(255, 255, 255, 0.2);
+    /*change color of loader*/
+    border-top-color: #fff;
+    -webkit-animation: spin 1s infinite linear;
+    animation: spin 1s infinite linear;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+#error{
+    display: none;
+    text-align: center;
+    color: red;
+    padding: 1em;
+    background-color: #fff;
+    box-shadow: 0 0 4px rgba(0,0,0,0.4);
+}
+#search-results{
+  margin-top: 1em;
+}
+.result {
+    margin-bottom: 0.3em;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    zoom: 1;
+    background: #ECE9E6; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #ECE9E6 , #FFFFFF); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #ECE9E6 , #FFFFFF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+    color: #000;
+    padding: 1em 0;
+    box-shadow: 0 0 4px rgba(0,0,0,0.4);
+}
+.result.online{
+  border-left: 5px solid forestgreen;
+}
+.result.offline{
+  border-left: 5px solid darkred;
+}
+.result.closed,
+.result.does_not_exist{
+  border-left: 5px solid darkslategrey;
+}
+.result a{
+  color: slateblue;
+}
+.result a:hover,
+.result a:visited{
+  color: blueviolet;
+}
+.result .logo {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    background-image: url('https://static-cdn.jtvnw.net/jtv_user_pictures/freecodecamp-profile_image-d9514f2df0962329-300x300.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+}
+.result .status{
+  text-transform: capitalize;
+}
+.result .col-2,
+.result .col-6,
+.result .col-8 {
+    float: left;
+    text-align: center;
+}
+
+.result .col-2 {
+    width: 20%;
+}
+.result .col-6 {
+    width: 100%;
+}
+.result .col-8 {
+    width: 80%;
+}
+.result p{
+  margin: 0;
+}
+
+@media only screen and (min-width: 768px) {
+    .controls {
+        width: 50%;
+    }
+    .result .col-6 {
+      width: 50%;
+    }
+    .result .col-8{
+      line-height: 50px;
+    }
+}
