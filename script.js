@@ -29,7 +29,7 @@ $(document).ready(function() {
         $.ajax({
             dataType: 'jsonp',
             crossDomain: true,
-            url: 'https://api.twitch.tv/kraken/search/channels?limit=25&q=' + q,
+            url: 'https://api.twitch.tv/kraken/search/channels?client_id=kl88blj60haq8yagp85dj87lyefoma&limit=25&q=' + q,
             success: function(data) {
                 if (data['_total'] == 0) {
                     showError(q + ' donot exist');
@@ -49,6 +49,8 @@ $(document).ready(function() {
                     }
                 }
             }
+        }).done(function(){
+            hideLoader();
         });
     }
 
@@ -87,14 +89,14 @@ $(document).ready(function() {
         arr.forEach(function(streamer_name) {
             showLoader();
             $.ajax({
-                url: 'https://api.twitch.tv/kraken/streams/' + streamer_name,
+                url: 'https://api.twitch.tv/kraken/streams/' + streamer_name + '?client_id=kl88blj60haq8yagp85dj87lyefoma',
                 dataType: 'jsonp',
                 crossDomain: true,
                 success: function(data) {
                     if (data.hasOwnProperty('stream')) {
                         if (data['stream'] == null) {
                             $.ajax({
-                                url: 'https://api.twitch.tv/kraken/channels/' + streamer_name,
+                                url: 'https://api.twitch.tv/kraken/channels/' + streamer_name + '?client_id=kl88blj60haq8yagp85dj87lyefoma',
                                 dataType: 'jsonp',
                                 crossDomain: true,
                                 success: function(data) {
@@ -109,6 +111,8 @@ $(document).ready(function() {
                                         hideLoader();
                                     }
                                 }
+                            }).done(function(){
+                                hideLoader();
                             });
                         } else {
                             var streamer = {};
